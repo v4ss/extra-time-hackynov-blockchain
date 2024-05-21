@@ -36,8 +36,8 @@ Chaques répertoires de challenges se présente de cette façon :
 
 Il faudra renommer le `.env.example` en `.env` et renseigner les deux variables manquantes qui sont :
 
-- PRIVATE_KEY : Une clé privée d'un wallet sans aucun fond et que vous n'utilsierai jamais ! (servira simplement à appeler des function view)
-- SEPOLIA_RPC_URL : L'adresse RPC d'un noeud pour intéragir avec le réseau Sepolia (Voir des node providers comme Alchemy ou Infura)
+- `PRIVATE_KEY` : Une clé privée d'un wallet sans aucun fond et que vous n'utilsierai jamais ! (servira simplement à appeler des function view)
+- `SEPOLIA_RPC_URL` : L'adresse RPC d'un noeud pour intéragir avec le réseau Sepolia (Voir des node providers comme Alchemy ou Infura)
 
 Une fois cela fait, vous pouvez lancer le container docker :
 
