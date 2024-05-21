@@ -1,0 +1,7 @@
+## CHALLENGES
+
+| Challenge name                                                                           | Categories | Description                                                                                                                                                                                     |
+| ---------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Keccak](https://github.com/HackyNov/HackyNov_0x03/tree/main/ALLIONE_Florian/Keccak)     | Blockchain | Votre mission est de devenir propriétaire de ce contrat intelligent. Sa propriété est protégée par un mécanisme de vérification unique basé sur le hashage et la connaissance de la Blockchain. |
+| [Keccak](https://github.com/HackyNov/HackyNov_0x03/tree/main/ALLIONE_Florian/Keccak)     | Blockchain | Tout est dit sur la page :) A vous de jouer !                                                                                                                                                   |
+| [Keccak_2](https://github.com/HackyNov/HackyNov_0x03/tree/main/ALLIONE_Florian/Keccak_2) | Blockchain | Vous allez devoir récupérer un nombre secret en analysant le code du contrat. Votre but est de devenir "owner" du contrat en utilisant vos connaissances sur la Blockchain.                     |

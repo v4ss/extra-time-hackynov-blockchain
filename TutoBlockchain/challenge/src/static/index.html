@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hacky'Nov - Tuto Blockchain</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body id="body">
+        <script src="./js/index.js" type="module"></script>
+        <header>
+            <div class="logo-container">
+                <div class="logo"></div>
+                <div class="text-logo"></div>
+            </div>
+            <div>
+                <button id="connectButton"> Connect </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="chall-description">
+                <h1>Tuto Blockchain</h1>
+                <hr/>
+                <p>Vous allez apprendre ici les bases sur les challenges Blockchain. Vous apprendrez à utiliser un wallet sur un réseau Blockchain, déployer vos instances de challenges (smart contract) et appeler des fonctions de ces même contrats.</p>
+                <p>C'est parti !</p>
+            </div>
+            <br />
+            <div class="chall-description">
+                <h1>1 - Metamask</h1>
+                <hr/>
+                <p>Pour intéragir avec un réseau Blockchain, vous allez devoir utiliser un wallet. Il est votre porte d'entrée aux réseaux décentralisés :)</p>
+                <p>Voici un tutoriel vidéo vous expliquant tout ce que vous devez savoir. De l'installation à son utilisation !</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4HOuGnm54k4?si=yRKAzdWCaKTd6jUz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p class="disclaimer">TOUS les challenges se feront sur le réseaux de test SEPOLIA. Pour passer sur ce réseau, vous pouvez suivre ce tutoriel :</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4MO2jn22aa8?si=rqKvGL6TGHR9uvyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <br />
+            <div class="chall-description">
+                <h1>2 - Déploiement du challenge</h1>
+                <hr/>
+                <p>A chaque fois, vous aurez une description du challenge vous disant ce qu'il faut faire pour le réussir et l'envoyer pour vérification. Ensuite, il vous sera donné le code du smart contract à exploiter afin que vous l'analysiez et que vous trouviez comment atteindre l'objectif attendu. Le plus souvent, le but est de devenir owner du contrat, c'est à dire avoir son adresse de wallet inscrit dans la variable owner du contrat.</p>
+                <p>Le contrat sera fourni comme ceci :</p>
+                <div class="code-container">
+                    <pre>
+                        <code>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract TutoBlockchain {
+    address private s_owner;
+
+    constructor() {
+        s_owner = msg.sender;
+    }
+
+    function getOwnership() external {
+        s_owner = msg.sender;
+    }
+
+    function getOwner() external view returns(address) {
+        return s_owner;
+    }
+}
+                        </code>
+                    </pre>
+                </div>
+                <p>Il y aura en dessous du code deux boutons. Un pour déployer une instance de ce contrat (sur laquelle vous pourrez faire ce que vous voulez) et un deuxième bouton permettant de vérifier si vous avez bien atteint l'objectif. Si c'est bien le cas, alors le flag vous sera transmis.</p>
+                <p class="disclaimer">ATTENTION : Lorsque vous faites vérifier votre instance du challenge, veuillez à bien accepter les deux transactions qui s'afficheront l'une après l'autre sur votre Metamask.</p>
+                <p class="disclaimer">Il est conseillé d'avoir la console du navigateur ouverte sur chaque challenge. C'est par ici que vous aurez vos messages d'erreur ou de réussite.</p>
+            </div>
+            <br />
+            <div class="chall-description">
+                <h1>3 - Faucet</h1>
+                <hr/>
+                <p>Pour déployer et intéragir avec un smart contract sur une Blockchain, il vous faut de quoi payer les frais de gas d'utilisation du réseau. Heureusement, sur un réseau de test comme Sepolia, vous pouvez récupérer des $ETH de test gratuitement sur ce qu'on appelle des faucets.</p>
+                <p>Voici des liens vers des faucets, certains demandent d'avoir un compte sur le site :</p>
+                <ul>
+                    <li><a href="https://www.sepoliafaucet.io/">SepoliaFaucet</a></li>
+                    <li><a href="https://faucetlink.to/sepolia">Liste d'autres faucet</a></li>
+                </ul>
+                <p class="disclaimer">Si jamais vous n'arrivez pas du tout à avoir des ETH de test sur Sepolia, demandez Florian ALLIONE (v4ss) au Staff Hacky'Nov. Peut-être qu'il vous dépannera quelques token :)</p>
+            </div>
+            <br />
+            <div class="chall-description">
+                <h1>4 - Remix</h1>
+                <hr/>
+                <p>Remix est un IDE en ligne pour les smart contracts. Il vous permet de déployer, charger, intéragir très simplement avec des smart contracts.</p>
+                <p>Une fois que vous avez déployé votre instance, son adresse vous sera donnée dans la console du navigateur et sur la page du challenge. Vous la récupèrerez pour pouvoir intéragir avec le contrat.</p>
+                <p>Pour se faire, ouvrez <a href="https://remix.ethereum.org/" target="_blank">Remix</a>, créez un nouveau contrat dans votre zone de travail à gauche sous le répertoire "contracts" : Nommez-le &lt;ce_que_vous_voulez&gt;.sol (.sol veut dire que le fichier est dans le langage Solidity, le langage des smarts contracts Ethereum). Collez le code fourni dans le challenge et compilez-le en faisant la combinaison de touche CTRL+S.<br />Allez ensuite dans l'onglet "Deploy & run transactions" tout à gauche, sélectionnez l'environnement "Injected Provider - Metamask" et connecter votre wallet à Remix.<br />Sélectionnez bien sur Metamask le réseau de test Sepolia, puis collez l'adresse de votre instance de contrat dans l'input intitulé "At Address" plus bas dans le même onglet de Remix, puis cliquez sur "At Address".<br />Vous avez chargé votre instance, elle se trouve juste en dessous et vous pouvez maintenant appelez les fonctions du contrat !</p>
+                <p>Si besoin, voici une petite vidéo explicative de Remix IDE :</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vH8T3In6ZkE?si=z8TZb4UpMSax_evb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <br />
+            <div class="chall-description">
+                <h1>5 - A vous de jouer !</h1>
+                <hr/>
+                <p>Déployez une instance de ce contrat et devenez en owner. Pour ce faire, vous devez simplement appeler la function "getOwnership()", puis vérifier votre instance sur cette même page et à vous le flag !</p>
+            </div>
+            <div class="code-container">
+                <pre>
+                    <code>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract TutoBlockchain {
+    address private s_owner;
+
+    constructor() {
+        s_owner = msg.sender;
+    }
+
+    function getOwnership() external {
+        s_owner = msg.sender;
+    }
+
+    function getOwner() external view returns(address) {
+        return s_owner;
+    }
+}
+                    </code>
+                </pre>
+            </div>
+            <div id="instanceContainer" class="address-container">
+                <p>Adresse de l'instance : <span id="instanceAddress"></span></p>
+                <p id="flag"></p>
+            </div>
+            <div class="button-container">
+                <button id="submitButton"> Vérifier l'instance </button>
+                <button id="instanceButton"> Déployer une instance du contrat </button>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-logo"></div>
+            <div class="footer-author">
+                <p>By <a href="https://github.com/v4ss">v4ss</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hacky'Nov - Tracker</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body id="body">
+        <script src="./js/index.js" type="module"></script>
+        <header>
+            <div class="logo-container">
+                <div class="logo"></div>
+                <div class="text-logo"></div>
+            </div>
+            <div>
+                <button id="connectButton"> Connect </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="chall-description">
+                <h1>Tracker</h1>
+                <hr/>
+                <p>Vous allez devoir récupérer un nombre secret en analysant le code du contrat. Votre but est de devenir "owner" du contrat en utilisant vos connaissances sur la Blockchain.</p>
+                <p>Vous utiliserez le réseau de test Sepolia pour faire vos challenges.</p>
+                <p class="disclaimer">Ce site n'est que la plateforme de déploiement et de vérification des instances des smart contracts. Il n'y a rien à tester, ni à trouver ici, tout se passe dans les contrats déployés.</p>
+            </div>
+            <div class="code-container">
+                <pre>
+                    <code>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "./TrackerTarget.sol";
+
+error Tracker__NotOwner();
+error Tracker__InvalidHash();
+
+contract Tracker {
+    address private s_owner;
+    TrackerTarget private s_targetContract =
+        TrackerTarget(0xcAb4B050bcf9f4b2f048eB3619eD5354d451b3cc);
+
+    constructor() {
+        s_owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        if (msg.sender != s_owner) revert Tracker__NotOwner();
+        _;
+    }
+
+    function changeOwner(uint256 secretNumber) external {
+        bytes32 hash = s_targetContract.getHash();
+        if (hash != keccak256(abi.encode(secretNumber)))
+            revert Tracker__InvalidHash();
+
+        s_owner = msg.sender;
+    }
+
+    function getOwner() external view returns (address) {
+        return s_owner;
+    }
+
+    function getSecret() external view onlyOwner returns (string memory) {
+        return "Find the secret key";
+    }
+}
+                    </code>
+                </pre>
+            </div>
+            <div id="instanceContainer" class="address-container">
+                <p>Adresse de l'instance : <span id="instanceAddress"></span></p>
+                <p id="flag"></p>
+            </div>
+            <div class="button-container">
+                <button id="submitButton"> Vérifier l'instance </button>
+                <button id="instanceButton"> Déployer une instance du contrat </button>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-logo"></div>
+            <div class="footer-author">
+                <p>By <a href="https://github.com/v4ss">v4ss</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

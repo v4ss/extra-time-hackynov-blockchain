@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.back
+    image: keccak_back:latest
+    ports:
+      - "20001:3000"
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.front
+    image: keccak_front:latest
+    ports:
+      - "20002:80"

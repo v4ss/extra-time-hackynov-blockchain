@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.back
+    image: auctionhouse_back:latest
+    ports:
+      - "20009:3000"
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.front
+    image: auctionhouse_front:latest
+    ports:
+      - "20010:80"

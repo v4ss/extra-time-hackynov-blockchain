@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.back
+    image: tracker_back:latest
+    ports:
+      - "20013:3000"
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.front
+    image: tracker_front:latest
+    ports:
+      - "20014:80"

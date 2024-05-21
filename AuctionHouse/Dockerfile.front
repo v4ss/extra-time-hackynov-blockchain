@@ -1,0 +1,8 @@
+# Utiliser une image Nginx officielle en tant que base
+FROM nginx:latest
+
+# Copier les fichiers de l'application dans le répertoire web du serveur Nginx
+COPY ./challenge/src/static /usr/share/nginx/html
+
+# Exposer le port sur lequel le serveur Nginx va écouter (normalement, il est déjà exposé par défaut)
+EXPOSE 80

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hacky'Nov - The Lost Treasure</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body id="body">
+        <script src="./js/index.js" type="module"></script>
+        <header>
+            <div class="logo-container">
+                <div class="logo"></div>
+                <div class="text-logo"></div>
+            </div>
+            <div>
+                <button id="connectButton"> Connect </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="chall-description">
+                <h1>The Lost Treasure</h1>
+                <hr/>
+                <p>Vous allez devoir utiliser des fonctions spécifiques du contrat intelligent pour trouver et récupérer un coffre submergé au fond de l'océan ... Déplacez-vous à l'endroit indiqué par la carte pour réussir le challenge.</p>
+                <p>Vous utiliserez le réseau de test Sepolia pour faire vos challenges.</p>
+                <p class="disclaimer">Ce site n'est que la plateforme de déploiement et de vérification des instances des smart contracts. Il n'y a rien à tester, ni à trouver ici, tout se passe dans les contrats déployés.</p>
+            </div>
+            <div class="code-container">
+                <pre>
+                    <code>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+error TheLostTreasure__InvalidPosition();
+
+contract TheLostTreasure {
+    string[] private s_chestMap = [
+        "devant",
+        "devant",
+        "droite",
+        "devant",
+        "gauche",
+        "gauche",
+        "derriere",
+        "gauche",
+        "devant",
+        "devant",
+        "gauche",
+        "gauche",
+        "derriere",
+        "derriere"
+    ];
+    string[] private s_submarinePosition;
+
+    function goForward() public {
+        s_submarinePosition.push("devant");
+    }
+
+    function goBackward() public {
+        s_submarinePosition.push("derriere");
+    }
+
+    function goLeft() public {
+        s_submarinePosition.push("gauche");
+    }
+
+    function goRight() public {
+        s_submarinePosition.push("droite");
+    }
+
+    function undoMoving() public {
+        s_submarinePosition.pop();
+    }
+
+    function resetPosition() public {
+        delete s_submarinePosition;
+    }
+
+    function getSubmarinePosition() public view returns (string[] memory) {
+        return s_submarinePosition;
+    }
+
+    function getChestPosition() public view returns (string[] memory) {
+        return s_chestMap;
+    }
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="interact-chall" id="interact">
+                <div class="carte-tresor"></div>
+                <div class="dashboard">
+                    <h1>Tableau de bord du bâteau</h1>
+                    <div class="devant-button">
+                        <button id="devant">Devant</button>
+                    </div>
+                    <div class="lateral-button">
+                        <button id="gauche">Gauche</button>
+                        <button id="droite">Droite</button>
+                    </div>
+                    <div class="derriere-button">
+                        <button id="derriere">Derrière</button>
+                    </div>
+                    <div class="tresor">
+                        <button id="undo">Undo le dernier mouvement</button>
+                        <button id="reset">Réinitialiser la position</button>
+                    </div>
+                </div>
+            </div>
+            <div id="instanceContainer" class="address-container">
+                <p>Adresse de l'instance : <span id="instanceAddress"></span></p>
+                <p id="flag"></p>
+            </div>
+            <div class="button-container">
+                <button id="submitButton"> Vérifier l'instance </button>
+                <button id="instanceButton"> Déployer une instance du contrat </button>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-logo"></div>
+            <div class="footer-author">
+                <p>By <a href="https://github.com/v4ss">v4ss</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

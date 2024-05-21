@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hacky'Nov - AuctionHouse</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body id="body">
+        <script src="./js/index.js" type="module"></script>
+        <header>
+            <div class="logo-container">
+                <div class="logo"></div>
+                <div class="text-logo"></div>
+            </div>
+            <div>
+                <button id="connectButton"> Connect </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="chall-description">
+                <h1>AuctionHouse</h1>
+                <hr/>
+                <p>Votre but est de gagner l'enchère organisée par les pirates de la LockSea. Ils ont amassé un beau butin mais certains de ces pirates ne sont peut-être pas très fidèle à leur équipage. Devenez le topBidder pour remporter le challenge !</p>
+                <p>Vous utiliserez le réseau de test Sepolia pour faire vos challenges.</p>
+                <p class="disclaimer">Ce site n'est que la plateforme de déploiement et de vérification des instances des smart contracts. Il n'y a rien à tester, ni à trouver ici, tout se passe dans les contrats déployés.</p>
+            </div>
+            <div class="code-container">
+                <pre>
+                    <code>
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract AuctionHouse {
+
+    mapping(address => uint) private bid;
+    address private topBidder;
+    bool private bidState;
+    address private organizer;
+
+    constructor() {
+        topBidder = msg.sender;
+        bid[msg.sender] = 1000 * (1 ether);
+        bidState = true;
+        organizer = address(this);
+    }
+
+    modifier onlyOrganizer {
+        require(msg.sender == organizer, "Vous n'etes pas les organisateurs de la vente aux encheres");
+        _;
+    }
+
+    modifier onlyTopBidder {
+        require(
+            msg.sender == topBidder && bidState == false,
+            "Tu n'es pas le gagnant de l'enchere"
+        );
+        _;
+    }
+
+    function makeABid() public payable {
+        require(msg.value < 0.0001 ether);
+        bid[msg.sender] += msg.value;
+        if(bid[msg.sender] > bid[topBidder]) {
+            topBidder = msg.sender;
+        }
+    }
+
+    function changeBidState(bool state) public onlyOrganizer {
+        bidState = state;
+    }
+
+    function getBidAmount() public view returns (uint) {
+        return bid[msg.sender];
+    }
+
+    function getPrize() public onlyTopBidder {
+        payable(topBidder).transfer(address(this).balance);
+    }
+
+    function getTopBidder() public view returns (address) {
+        return topBidder;
+    }
+
+    function getOrganizer() public view returns (address) {
+        return organizer;
+    }
+
+    function getBidState() public view returns (bool) {
+        return bidState;
+    }
+
+    function getTopBid() public view returns (uint) {
+        return bid[topBidder];
+    }
+
+
+    receive() external payable {
+        require(msg.value > 0 && bid[msg.sender] > 0);
+        topBidder = msg.sender;
+        bidState = false;
+    }
+}                                    
+                    </code>
+                </pre>
+            </div>
+            <div id="instanceContainer" class="address-container">
+                <p>Adresse de l'instance : <span id="instanceAddress"></span></p>
+                <p id="flag"></p>
+            </div>
+            <div class="button-container">
+                <button id="submitButton"> Vérifier l'instance </button>
+                <button id="instanceButton"> Déployer une instance du contrat </button>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-logo"></div>
+            <div class="footer-author">
+                <p>By <a href="https://github.com/v4ss">v4ss</a></p>
+            </div>
+        </footer>
+    </body>
+</html>

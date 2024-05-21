@@ -1,0 +1,185 @@
+@font-face {
+    font-family: RoadRadioBold;
+    src: url("./font/RoadRadio\ Bold.ttf");
+}
+@font-face {
+    font-family: Karla;
+    src: url("./font/Karla-VariableFont_wght.ttf");
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(160deg, #0a1a18, #408d81);
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+header {
+    width: 100%;
+    background: #112926;
+    box-shadow: #112926;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 12px 35px 28px #112926;
+}
+
+header .logo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+header .logo {
+    background: url("../img/Logo-Hacky\'Nov-Depths-White.svg");
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+}
+
+header .text-logo {
+    background: url("../img/Texte-Hacky\'Nov-Depths-White.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 130px;
+}
+
+header .logo-container .logo-text {
+    color: white;
+    font-family: RoadRadioBold;
+    font-size: 20px;
+}
+
+header button {
+    padding: 10px;
+    margin-right: 20px;
+    font-family: RoadRadioBold;
+    font-size: 14px;
+    color: white;
+    background: #112926;
+    border: #62D7C7 solid 2px;
+    border-radius: 10px;
+}
+
+header button:hover {
+    padding: 11px;
+    margin-right: 19px;
+}
+
+main {
+    width: 100%;
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+main .chall-description {
+    width: 80%;
+    background: rgba(0, 0, 0, 0.452);
+    border: #62D7C7 solid 2px;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+main .chall-description h1 {
+    font-family: RoadRadioBold;
+    font-size: 30px;
+}
+
+main .chall-description p {
+    font-family: Karla;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+main .chall-description .disclaimer {
+    color: rgb(212, 0, 0);
+    font-size: 14px;
+    font-style: italic;
+}
+
+main .code-container {
+    width: 80%;
+    margin: 30px 0;
+    background: black;
+    border: #62D7C7 solid 2px;
+    border-radius: 20px;
+    padding: 0 30px;
+    font-size: 15px;
+}
+
+main .code-container pre {
+    margin-bottom: 0;
+}
+main .address-container {
+    margin: 5px 0;
+    text-align: center;
+}
+
+main .address-container p {
+    font-family: Karla;
+    font-size: 20px;
+}
+
+main .button-container button {
+    padding: 10px;
+    margin: 1px;
+    font-family: RoadRadioBold;
+    font-size: 16px;
+    color: white;
+    background: #112926;
+    border: #62D7C7 solid 2px;
+    border-radius: 10px;
+}
+
+main .button-container button:hover {
+    padding: 11px;
+    margin: 0;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .footer-logo {
+    background: url("../img/Texte-Hacky\'Nov-Depths-White.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 200px;
+}
+
+footer .footer-author {
+    padding: 80px 0 30px 0;
+}
+
+footer .footer-author p {
+    color: black;
+    font-weight: bold;
+    font-family: Karla;
+}
+
+footer .footer-author p a {
+    color: black;
+}
+
+.hide {
+    display: none;
+}
