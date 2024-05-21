@@ -13,7 +13,7 @@ Les challenges Blockchain se déploient et se vérifient sur une autre plateform
 **La description du challenge :**
 
 ```
-Vous allez devoir récupérer un nombre secret en analysant le code du contrat. Votre but est de devenir "owner" du contrat en utilisant vos connaissances sur la Blockchain.
+Vous allez devoir parier sur des combats et gagner 10 fois d'affilé ! Vous avez intérêt à être très chanceux ...
 
 Vous utiliserez le réseau de test Sepolia pour faire vos challenges.
 ```
