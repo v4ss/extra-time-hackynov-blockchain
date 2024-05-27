@@ -20,7 +20,7 @@ Vous utiliserez le réseau de test Sepolia pour faire vos challenges.
 
 | Nom du challenge | Catégorie  | Nombre de points | Nombre de résolution |
 | ---------------- | ---------- | ---------------- | -------------------- |
-| Keccak_2         | Blockchain | A définir        | 0/XX                 |
+| Keccak_2         | Blockchain | 200              | 5                    |
 
 ## Déploiement du challenge
 

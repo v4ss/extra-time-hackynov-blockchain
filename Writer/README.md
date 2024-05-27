@@ -1,4 +1,4 @@
-# Tracker - WriteUp
+# Writer - WriteUp
 
 <div align="center">
   <a href="https://hackynov.fr"><img src="./img/Logo+Texte-Hacky&apos;Nov-Depths-White.svg" alt="Hacky'Nov" width="50%"></a>
@@ -20,7 +20,7 @@ Vous utiliserez le réseau de test Sepolia pour faire vos challenges.
 
 | Nom du challenge | Catégorie  | Nombre de points | Nombre de résolution |
 | ---------------- | ---------- | ---------------- | -------------------- |
-| Writer           | Blockchain | A définir        | 0/XX                 |
+| Writer           | Blockchain | 450              | 2                    |
 
 ## Déploiement du challenge
 

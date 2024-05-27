@@ -20,7 +20,7 @@ Vous utiliserez le réseau de test Sepolia pour faire vos challenges.
 
 | Nom du challenge | Catégorie  | Nombre de points | Nombre de résolution |
 | ---------------- | ---------- | ---------------- | -------------------- |
-| AuctionHouse     | Blockchain | A définir        | 0/XX                 |
+| AuctionHouse     | Blockchain | 200              | 4                    |
 
 ## Déploiement du challenge
 

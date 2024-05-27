@@ -1,4 +1,4 @@
-# The Lost Treasure - WriteUp
+# Tuto Blockchain - WriteUp
 
 <div align="center">
   <a href="https://hackynov.fr"><img src="./img/Logo+Texte-Hacky&apos;Nov-Depths-White.svg" alt="Hacky'Nov" width="50%"></a>
@@ -6,7 +6,7 @@
 
 | Nom du challenge | Catégorie  | Nombre de points | Nombre de résolution |
 | ---------------- | ---------- | ---------------- | -------------------- |
-| Tuto Blockchain  | Blockchain | 150              | 0/XX                 |
+| Tuto Blockchain  | Blockchain | 100              | 16                   |
 
 ## Solution
 

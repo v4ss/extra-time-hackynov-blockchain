@@ -20,7 +20,7 @@ Vous utiliserez le réseau de test Sepolia pour faire vos challenges.
 
 | Nom du challenge | Catégorie  | Nombre de points | Nombre de résolution |
 | ---------------- | ---------- | ---------------- | -------------------- |
-| Tracker          | Blockchain | A définir        | 0/XX                 |
+| Tracker          | Blockchain | 300              | 3                    |
 
 ## Déploiement du challenge
 

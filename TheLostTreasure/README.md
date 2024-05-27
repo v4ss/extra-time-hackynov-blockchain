@@ -20,7 +20,7 @@ Vous utiliserez le réseau de test Sepolia pour faire vos challenges.
 
 | Nom du challenge | Catégorie  | Nombre de points | Nombre de résolution |
 | ---------------- | ---------- | ---------------- | -------------------- |
-| TheLostTreasure  | Blockchain | A définir        | 0/XX                 |
+| TheLostTreasure  | Blockchain | 150              | 12                   |
 
 ## Déploiement du challenge
 

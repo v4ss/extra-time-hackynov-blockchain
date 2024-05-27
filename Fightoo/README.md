@@ -20,7 +20,7 @@ Vous utiliserez le réseau de test Sepolia pour faire vos challenges.
 
 | Nom du challenge | Catégorie  | Nombre de points | Nombre de résolution |
 | ---------------- | ---------- | ---------------- | -------------------- |
-| Fightoo          | Blockchain | A définir        | 0/XX                 |
+| Fightoo          | Blockchain | 200              | 3                    |
 
 ## Déploiement du challenge
 
