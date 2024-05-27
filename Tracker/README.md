@@ -1,5 +1,3 @@
-# Tracker - WriteUp
-
 <div align="center">
   <a href="https://hackynov.fr"><img src="./img/Logo+Texte-Hacky&apos;Nov-Depths-White.svg" alt="Hacky'Nov" width="50%"></a>
 </div>
